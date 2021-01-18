@@ -45,24 +45,24 @@ class VkBot:
 			"link_id": f"https://vk.com/id{user_id}",
 			"first_name": need_data['first_name'],
 			"last_name": need_data['last_name'],
-			""" "sex": need_data['sex'], """
-			""" "country": need_data['country'], """
-			""" "city": need_data['city'], """
-			"age": str(int(strftime("%Y")) - int(need_data['bdate'][5::])),
-			""" "bdate": need_data['bdate'], """
-			"photo_50": need_data['photo_50'],
-			"photo_100": need_data['photo_100'],
-			"photo_200": need_data['photo_200'],
-			"photo_400": need_data['photo_400'],
-			"visit": need_data['last_seen'],
-			"device": need_data['has_mobile'],
-			'online': need_data['online'],
-			"nickname": need_data['nickname'],
-			"link_url": f"https://vk.com/{need_data['nickname']}",
-			"site": need_data['site'],
-			"status": need_data['status'],
-			"verified": need_data['verified'],
-			"career": need_data['career'],
+#			"sex": need_data['sex'],
+#			"country": need_data['country'],
+#			"city": need_data['city'], """
+#			"age": str(int(strftime("%Y")) - int(need_data['bdate'][5::])),
+#			"bdate": need_data['bdate'],
+#			"photo_50": need_data['photo_50'],
+#			"photo_100": need_data['photo_100'],
+#			"photo_200": need_data['photo_200'],
+#			"photo_400": need_data['photo_400'],
+#			"visit": need_data['last_seen'],
+#			"device": need_data['has_mobile'],
+#			'online': need_data['online'],
+#			"nickname": need_data['nickname'],
+#			"link_url": f"https://vk.com/{need_data['nickname']}",
+#			"site": need_data['site'],
+#			"status": need_data['status'],
+#			"verified": need_data['verified'],
+#			"career": need_data['career'],
 		       }
 
 
