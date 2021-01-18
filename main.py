@@ -47,7 +47,7 @@ class VkBot:
 			"last_name": need_data['last_name'],
 			""" "sex": need_data['sex'], """
 			""" "country": need_data['country'], """
-			"city": need_data['city'],
+			""" "city": need_data['city'], """
 			"age": str(int(strftime("%Y")) - int(need_data['bdate'][5::])),
 			"bdate": need_data['bdate'],
 			"photo_50": need_data['photo_50'],
