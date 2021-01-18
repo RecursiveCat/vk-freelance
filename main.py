@@ -53,7 +53,7 @@ class VkBot:
 			"photo_50": need_data['photo_50'],
 			"photo_100": need_data['photo_100'],
 			"photo_200": need_data['photo_200'],
-			"photo_400": need_data['photo_400']
+			"photo_400": need_data['photo_400'],
 			"visit": need_data['last_seen'],
 			"device": need_data['has_mobile'],
 			'online': need_data['online'],
@@ -63,10 +63,11 @@ class VkBot:
 			"status": need_data['status'],
 			"verified": need_data['verified'],
 			"career": need_data['career'],
-			""
+			"",
 		}
 
 
 vk = VkBot(num, pwd)
 print(vk.get_user_data("612976792"))
+
 
