@@ -63,7 +63,7 @@ class VkBot:
 			"status": need_data['status'],
 			"verified": need_data['verified'],
 			"career": need_data['career'],
-			"",
+			""
 		}
 
 
