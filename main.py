@@ -32,7 +32,7 @@ class VkBot:
 			followers_count, common_count, occupation, 
 			nickname, relatives, relation,
 			personal, connections, exports, 
-			activities, interests, music, 
+			activities, interests, music,sex 
 			movies, tv, books, games, about, 
 			quotes, can_post, can_see_all_posts, 
 			can_see_audio, can_write_private_message, can_send_friend_request, 
