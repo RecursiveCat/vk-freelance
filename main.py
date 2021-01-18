@@ -32,7 +32,7 @@ class VkBot:
 			followers_count, common_count, occupation, 
 			nickname, relatives, relation,
 			personal, connections, exports, 
-			activities, interests, music,sex 
+			activities, interests, music,
 			movies, tv, books, games, about, 
 			quotes, can_post, can_see_all_posts, 
 			can_see_audio, can_write_private_message, can_send_friend_request, 
@@ -45,7 +45,7 @@ class VkBot:
 			"link_id": f"https://vk.com/id{user_id}",
 			"first_name": need_data['first_name'],
 			"last_name": need_data['last_name'],
-			"sex": need_data['sex'],
+			""" "sex": need_data['sex'], """
 			"country": need_data['country'],
 			"city": need_data['city'],
 			"age": str(int(strftime("%Y")) - int(need_data['bdate'][5::])),
