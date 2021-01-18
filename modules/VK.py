@@ -12,7 +12,10 @@ class VK:
 
   def GET_API(self):
     print(str(__class__)+"->GET_API : called")
-    return self.API
+    try:
+      return self.API
+    except:
+      print(str(__class__)+"->GET_API : error : cannot find API enitie")
 
 
 
