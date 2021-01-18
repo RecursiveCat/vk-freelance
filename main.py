@@ -49,7 +49,7 @@ class VkBot:
 			""" "country": need_data['country'], """
 			""" "city": need_data['city'], """
 			"age": str(int(strftime("%Y")) - int(need_data['bdate'][5::])),
-			"bdate": need_data['bdate'],
+			""" "bdate": need_data['bdate'], """
 			"photo_50": need_data['photo_50'],
 			"photo_100": need_data['photo_100'],
 			"photo_200": need_data['photo_200'],
