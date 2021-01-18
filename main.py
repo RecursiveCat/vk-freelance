@@ -1,16 +1,15 @@
-#BASE
-#import modules
-from time import strftime
 import config
 import vk_api
+from time import strftime
 
-#CLASSES
-#from modules import VK
 
-num = config.number
-pwd = config.pwd
+num  = config.number
+pwd  = config.pwd
 post = "https://vk.com/wall612976792_6"
+
+
 class VkBot:
+
 	def __init__(self, number, password):
 		vk_session = vk_api.VkApi(number,password)
 		vk_session.auth()
@@ -19,20 +18,19 @@ class VkBot:
 	def get_users(self,post):
 		return self.vk.likes.getList(type="post",item_id=6)['items']
 
-	def get_about_user(self,user_id):
-
+	def get_user_data(self,user_id):
 		need_data = self.vk.users.get(user_ids=user_id,fields=
 			"""
 			photo_id, verified,
-			home_town, has_photo, 
-			photo_50, photo_100, 
-			photo_200_orig, photo_200, 
-			photo_400_orig, photo_max, 
-			photo_max_orig, domain, 
+			home_town, has_photo,
+			photo_50, photo_100,
+			photo_200_orig, photo_200,
+			photo_400_orig, photo_max,
+			photo_max_orig, domain,
 			has_mobile, contacts, site, education, 
 			universities, schools, status, last_seen, 
 			followers_count, common_count, occupation, 
-			nickname, relatives, relation, 
+			nickname, relatives, relation,
 			personal, connections, exports, 
 			activities, interests, music, 
 			movies, tv, books, games, about, 
@@ -66,19 +64,9 @@ class VkBot:
 			"verified": need_data['verified'],
 			"career": need_data['career'],
 			""
-
 		}
+
+
 vk = VkBot(num, pwd)
+print(vk.get_user_data("612976792"))
 
-print(vk.get_about_user("612976792"))
-
-
-
-# <<<<<<< HEAD
-# vk = VK.VK(num,pwd)
-# vk = vk.GET_API()
-# =======
-# 	def get_users(self,post):
-# 		print(self.vk.likes.getList(type="post",item_id=6))
-
-# >>>>>>> afb63c1 (make it better)
