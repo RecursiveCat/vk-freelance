@@ -37,10 +37,11 @@ class Exel:
         return self.cache_row
 
 
-
-exel = Exel("/home/int0x80/Public/vk-freelance/tables/test.csv")
-print(exel.get_row_from_table(1))
-exel.write_row_to_csv([1,2,3],"lol.csv")
-print(exel.get_last_writed_row())
-print(exel.get_last_exported_row())
-print(exel.find_symbols_in_row("sucka",exel.get_last_exported_row()))
+## Base demo
+# exel = Exel("/home/int0x80/Public/vk-freelance/tables/test.csv")
+# print(exel.get_row_from_table(1))
+# exel.write_row_to_csv([1,2,3],"lol.csv")
+# print(exel.get_last_writed_row())
+# print(exel.get_last_exported_row())
+# print(exel.find_symbols_in_row("sucka",exel.get_last_exported_row()))
+##
