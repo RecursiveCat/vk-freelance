@@ -14,3 +14,4 @@ Exel.__init__(self,"/path/to/your/csv/file.csv") -> self <br>
 Exel.get_last_writed_row()                       -> list <br>
 Exel.get_last_exported_row()                     -> list <br>
 Exel.find_symbols_in_row("Text to find",[any array with dump etc]) -> bool <br>
+Exel.get_row_from_table(int(row num/index ))     -> list <br>
