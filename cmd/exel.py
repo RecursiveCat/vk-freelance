@@ -30,18 +30,11 @@ class Exel:
                 return True
         return False
 
-    def get_last_writed_row(self):
+    def get_last_written_row(self):
         return self.row_to_write
 
     def get_last_exported_row(self):
         return self.cache_row
 
-
-## Base demo
-# exel = Exel("/home/int0x80/Public/vk-freelance/tables/test.csv")
-# print(exel.get_row_from_table(1))
-# exel.write_row_to_csv([1,2,3],"lol.csv")
-# print(exel.get_last_writed_row())
-# print(exel.get_last_exported_row())
-# print(exel.find_symbols_in_row("sucka",exel.get_last_exported_row()))
-##
+    def get_path_to_csv_table(self):
+        return self.path_to_csv_table
