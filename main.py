@@ -1,72 +1,89 @@
+from bot import VkBot
+from excel import CSV
 import config
-import vk_api
-from time import strftime
 
+bot = VkBot(config.number, config.pwd)
+open("ТАБЛИЦА.csv", "wb").close()
+table = CSV("ТАБЛИЦА.csv")
 
-num  = config.number
-pwd  = config.pwd
-post = "https://vk.com/wall612976792_6"
+with open("links.txt") as file:
+	links = []
+	for link in file:
+		links.append(link.replace("\n", ""))
 
+if links == []:
+	print("Файл links.txt пуст! пожалуйста, вставьте туда ссылки, чтобы скрипт работал.")
+	exit()
 
-class VkBot:
+table.write_row_to_csv(['VK ID',
+        'ССЫЛКА НА ПРОФИЛЬ',
+        'ИМЯ',
+        'ФАМИЛИЯ',
+        'ПОЛ',
+        'СТРАНА',
+        'ГОРОД',
+        'ЛЕТ',
+        'ДАТА РОЖДЕНИЯ',
+        'ФОТО 50PX',
+        'ФОТО 100PX',
+        'ФОТО 200PX',
+        'ФОТО 400PX',
+        'ВИЗИТ В ВК',
+        'УСТРОЙСТВО ВИЗИТА В ВК',
+        'ОНЛАЙН',
+        'РОДНОЙ ГОРОД',
+        'VK КОРОТКИЙ АДРЕС',
+        'VK URL',
+        'НИКНЕЙМ',
+        'ДЕВИЧЬЯ ФАМИЛИЯ',
+        'САЙТ',
+        'СТАТУС',
+        'ВЕРИФИКАЦИЯ',
+        'ТЕКУЩАЯ ЗАНЯТОСТЬ',
+        'СЕМЕЙНОЕ ПОЛОЖЕНИЕ',
+        'ССЫЛКА НА ПАРТНЁРА',
+        'ИМЯ ПАРТНЁРА',
+        'ФАМИЛИЯ ПАРТНЁРА',
+        'INSTAGRAM',
+        'INSTAGRAM-@',
+        'INSTAGRAM-ССЫЛКА'],"ТАБЛИЦА.csv")
 
-	def __init__(self, number, password):
-		vk_session = vk_api.VkApi(number,password)
-		vk_session.auth()
-		self.vk = vk_session.get_api()
-
-	def get_users(self,post):
-		return self.vk.likes.getList(type="post",item_id=6)['items']
-
-	def get_user_data(self,user_id):
-		need_data = self.vk.users.get(user_ids=user_id,fields=
-			"""
-			photo_id, verified,
-			home_town, has_photo,
-			photo_50, photo_100,
-			photo_200_orig, photo_200,
-			photo_400_orig, photo_max,
-			photo_max_orig, domain,
-			has_mobile, contacts, site, education, 
-			universities, schools, status, last_seen, 
-			followers_count, common_count, occupation, 
-			nickname, relatives, relation,
-			personal, connections, exports, 
-			activities, interests, music,
-			movies, tv, books, games, about, 
-			quotes, can_post, can_see_all_posts, 
-			can_see_audio, can_write_private_message, can_send_friend_request, 
-			is_favorite, is_hidden_from_feed, timezone, screen_name, maiden_name, 
-			crop_photo, is_friend, friend_status, career, military, blacklisted, 
-			blacklisted_by_me, can_be_invited_group
-			""")[0]
-		return {
-			"id":user_id,
-			"link_id": f"https://vk.com/id{user_id}",
-			"first_name": need_data['first_name'],
-			"last_name": need_data['last_name'],
-#			"sex": need_data['sex'],
-#			"country": need_data['country'],
-#			"city": need_data['city'], """
-#			"age": str(int(strftime("%Y")) - int(need_data['bdate'][5::])),
-#			"bdate": need_data['bdate'],
-#			"photo_50": need_data['photo_50'],
-#			"photo_100": need_data['photo_100'],
-#			"photo_200": need_data['photo_200'],
-#			"photo_400": need_data['photo_400'],
-#			"visit": need_data['last_seen'],
-#			"device": need_data['has_mobile'],
-#			'online': need_data['online'],
-#			"nickname": need_data['nickname'],
-#			"link_url": f"https://vk.com/{need_data['nickname']}",
-#			"site": need_data['site'],
-#			"status": need_data['status'],
-#			"verified": need_data['verified'],
-#			"career": need_data['career'],
-		       }
-
-
-vk = VkBot(num, pwd)
-print(vk.get_user_data("612976792"))
-
+for link in links:
+	users = bot.get_users(link)
+	for user_id in users:
+		user = bot.get_user_data(user_id)
+		table.write_row_to_csv([user['id'],
+			user['link'],
+			user['first_name'],
+			user['last_name'],
+			user['sex'],
+			user['country'],
+			user['city'],
+			user['age'],
+			user['bdate'],
+			user['photo_50'],
+			user['photo_100'],
+			user['photo_200'],
+			user['photo_400_orig'],
+			user['last_seen'],
+			user['platform'],
+			user['online'],
+			user['home_town'],
+			user['domain'],
+			user['link'],
+			user['nickname'],
+			user['maiden_name'],
+			user['site'],
+			user['status'],
+			user['verified'],
+			user['career'],
+			user['relation'],
+			user['relation_link'],
+			user['relation_first_name'],
+			user['relation_last_name'],
+			user["instagram"],
+			user["instagram_tag"],
+			user["instagram_link"]
+			],"ТАБЛИЦА.csv")
+print("Таблица создана.")
 

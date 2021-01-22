@@ -51,9 +51,12 @@ class CSV:
                 current_row_index =    current_row_index + 1
 
     def is_element_exists(self,element,row):
-        if element in row:
-            return True
-        else:
+        try:
+            if element in row:
+                return True
+            else:
+                return False
+        except TypeError:
             return False
 
     def write_row_to_csv(self,row,path_to_csv_file):
@@ -61,9 +64,41 @@ class CSV:
             writer = csv.writer(csv_file)
             writer.writerow(row)
 
+# table = CSV("/home/recursive_cat/Documents/python/vk/tables/test.csv")
+# table.write_row_to_csv(['VK ID',
+#         'ССЫЛКА НА ПРОФИЛЬ',
+#         'ИМЯ',
+#         'ФАМИЛИЯ',
+#         'ПОЛ',
+#         'СТРАНА',
+#         'ГОРОД',
+#         'ЛЕТ',
+#         'ДАТА РОЖДЕНИЯ',
+#         'ФОТО 50PX',
+#         'ФОТО 100PX',
+#         'ФОТО 200PX',
+#         'ФОТО 400PX',
+#         'ВИЗИТ В ВК',
+#         'УСТРОЙСТВО ВИЗИТА В ВК',
+#         'ОНЛАЙН',
+#         'РОДНОЙ ГОРОД',
+#         'VK КОРОТКИЙ АДРЕС',
+#         'VK URL',
+#         'НИКНЕЙМ',
+#         'ДЕВИЧЬЯ ФАМИЛИЯ',
+#         'САЙТ',
+#         'СТАТУС',
+#         'ВЕРИФИКАЦИЯ',
+#         'ТЕКУЩАЯ ЗАНЯТОСТЬ',
+#         'СЕМЕЙНОЕ ПОЛОЖЕНИЕ',
+#         'ССЫЛКА НА ПАРТНЁРА',
+#         'ИМЯ ПАРТНЁРА',
+#         'ФАМИЛИЯ ПАРТНЁРА',
+#         'INSTAGRAM',
+#         'INSTAGRAM-@',
+#         'INSTAGRAM-ССЫЛКА'],"lol.csv")
 
-table = CSV("/home/int0x80/Desktop/freelance/vk-freelance/tables/test.csv")
-row = table.get_row_by_index(1)
-print(row)
-print(table.is_element_exists("Александра",row))
-table.write_row_to_csv("lol","lol.csv")
+# row = table.get_row_by_index(1)
+# print(row)
+# print(table.is_element_exists("Александра",row))
+# table.write_row_to_csv(['tvoya_piska', 'moya_piska'],"lol.csv")
