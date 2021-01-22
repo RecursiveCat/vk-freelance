@@ -1,3 +1,4 @@
+
 import csv
 
 class CSV:
@@ -12,7 +13,6 @@ class CSV:
         current_row_index = 0
         for row in self.row_reader:
             if current_row_index == waiting_row_index:
-                self.table_source_file.close()
                 return  {
                  'VK ID'             :row[0],
                  'ССЫЛКА НА ПРОФИЛЬ' :row[1],
@@ -66,4 +66,4 @@ table = CSV("/home/int0x80/Desktop/freelance/vk-freelance/tables/test.csv")
 row = table.get_row_by_index(1)
 print(row)
 print(table.is_element_exists("Александра",row))
-table.write_row_to_csv("lol","lol.csv")
+table.write_row_to_csv("lol","tes1.csv")
